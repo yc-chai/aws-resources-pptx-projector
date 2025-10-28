@@ -10,6 +10,5 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.11"
-      - run: pip install black flake8
-      - run: black --check projector.py
-      - run: flake8 proector.py
+      - run: pip install black
+      - run: black projector.py

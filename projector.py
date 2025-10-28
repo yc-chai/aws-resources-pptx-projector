@@ -21,20 +21,24 @@ These values can be customized before running the script.
 """
 
 # --- File / Directory Locations ---
-FILE_INPUT = Path("data/sample_aws_resources.json")    # Set your input JSON file path
-FILE_OUTPUT = Path("powerpoint/sample_output.pptx")    # Set your desired Powerpoint output file path
+FILE_INPUT = Path("data/sample_aws_resources.json")  # Set your input JSON file path
+FILE_OUTPUT = Path(
+    "powerpoint/sample_output.pptx"
+)  # Set your desired Powerpoint output file path
 
 # --- Content Starting Point ---
-START_LEFT = Inches(0.1)                        # Put your content to be generated left value
-START_TOP = Inches(0.1)                         # Put your content to be generated height value
+START_LEFT = Inches(0.1)  # Put your content to be generated left value
+START_TOP = Inches(0.1)  # Put your content to be generated height value
 
 # --- Slide Dimension ---
-SLIDE_W = Inches(13.33) - (START_LEFT * 2)      # Set your slide width (default 13.33" for Oracle layout)
-SLIDE_H = Inches(5.48)                          # Set your silde height
+SLIDE_W = Inches(13.33) - (
+    START_LEFT * 2
+)  # Set your slide width (default 13.33" for Oracle layout)
+SLIDE_H = Inches(5.48)  # Set your silde height
 
 # --- PowerPoint Styling ---
-PPTX_SLIDE_LAYOUT = 0                           # Set your slide layout (Home > Layout), find the layout type number start with 0 (default 15 for Oracle layout type)
-PPTX_FONT_SIZE = Pt(12)                         # Set the text font size
+PPTX_SLIDE_LAYOUT = 0  # Set your slide layout (Home > Layout), find the layout type number start with 0 (default 15 for Oracle layout type)
+PPTX_FONT_SIZE = Pt(12)  # Set the text font size
 
 # ==============================
 # INTERNAL CONFIGURATION ( Do Not Modify Unless Needed )
@@ -55,7 +59,7 @@ GROUP_W = Inches(2)
 GROUP_H = Inches(0.5)
 GROUP_RATIO_W = 4
 GROUP_RATIO_H = 3
-GROUP_TARGET_RATIO = GROUP_RATIO_W / GROUP_RATIO_H 
+GROUP_TARGET_RATIO = GROUP_RATIO_W / GROUP_RATIO_H
 
 # ITEM COMPONENTS
 ITEM_ICON_W = Inches(0.5)
@@ -69,59 +73,61 @@ ITEM_W = max(ITEM_ICON_W, ITEM_DESC_TB_W)
 ITEM_H = ITEM_ICON_H + ITEM_GAP_ICON_DESC + ITEM_DESC_TB_H
 
 # ITEM & GROUP STYLING
-PAD_H = Inches(0.15)     # Padding Horizontal (left-right)
-PAD_V = Inches(0.25)     # Padding Vertical (top-bottom)
-GAP_H = Inches(0.15)     # Item Gap Horizontal
-GAP_V = Inches(0.25)     # Item Gap Vertical
+PAD_H = Inches(0.15)  # Padding Horizontal (left-right)
+PAD_V = Inches(0.25)  # Padding Vertical (top-bottom)
+GAP_H = Inches(0.15)  # Item Gap Horizontal
+GAP_V = Inches(0.25)  # Item Gap Vertical
 
 # ITEM ICON STYLING
 ITEM_ICON_MAP = {
-    "aws_cloud"         : f"{DIR_AWS_ICON_ITEM}/aws_cloud.png",
-    "ebs"               : f"{DIR_AWS_ICON_ITEM}/ebs.png",
-    "ec2"               : f"{DIR_AWS_ICON_ITEM}/ec2.png",
-    "elb"               : f"{DIR_AWS_ICON_ITEM}/elb.png",
-    "igw"               : f"{DIR_AWS_ICON_ITEM}/igw.png",
-    "rds"               : f"{DIR_AWS_ICON_ITEM}/rds.png",
-    "s3"                : f"{DIR_AWS_ICON_ITEM}/s3.png"
+    "aws_cloud": f"{DIR_AWS_ICON_ITEM}/aws_cloud.png",
+    "ebs": f"{DIR_AWS_ICON_ITEM}/ebs.png",
+    "ec2": f"{DIR_AWS_ICON_ITEM}/ec2.png",
+    "elb": f"{DIR_AWS_ICON_ITEM}/elb.png",
+    "igw": f"{DIR_AWS_ICON_ITEM}/igw.png",
+    "rds": f"{DIR_AWS_ICON_ITEM}/rds.png",
+    "s3": f"{DIR_AWS_ICON_ITEM}/s3.png",
 }
 
 # GROUP BORDER STYLING
 BORDER_COLOR_MAP = {
-    "region"            : RGBColor(0x49, 0xA1, 0xA5),
-    "az"                : RGBColor(0x49, 0xA1, 0xA5),
-    "vpc"               : RGBColor(0x84, 0x52, 0xF6),
-    "private_subnet"    : RGBColor(0x49, 0xA1, 0xA5),
-    "public_subnet"     : RGBColor(0x82, 0xA0, 0x36),
-    "default"           : RGBColor(0x00, 0x00, 0x00)
+    "region": RGBColor(0x49, 0xA1, 0xA5),
+    "az": RGBColor(0x49, 0xA1, 0xA5),
+    "vpc": RGBColor(0x84, 0x52, 0xF6),
+    "private_subnet": RGBColor(0x49, 0xA1, 0xA5),
+    "public_subnet": RGBColor(0x82, 0xA0, 0x36),
+    "default": RGBColor(0x00, 0x00, 0x00),
 }
 BORDER_ICON_MAP = {
-    "region"            : f"{DIR_AWS_ICON_GROUP}/region.png",
-    "vpc"               : f"{DIR_AWS_ICON_GROUP}/vpc.png",
-    "private_subnet"    : f"{DIR_AWS_ICON_GROUP}/private_subnet.png",
-    "public_subnet"     : f"{DIR_AWS_ICON_GROUP}/public_subnet.png",
-    "default"           : None 
+    "region": f"{DIR_AWS_ICON_GROUP}/region.png",
+    "vpc": f"{DIR_AWS_ICON_GROUP}/vpc.png",
+    "private_subnet": f"{DIR_AWS_ICON_GROUP}/private_subnet.png",
+    "public_subnet": f"{DIR_AWS_ICON_GROUP}/public_subnet.png",
+    "default": None,
 }
 BORDER_DASH_MAP = {
-    "region"            : MSO_LINE_DASH_STYLE.SQUARE_DOT,
-    "az"                : MSO_LINE_DASH_STYLE.DASH,
-    "default"           : MSO_LINE_DASH_STYLE.SOLID
+    "region": MSO_LINE_DASH_STYLE.SQUARE_DOT,
+    "az": MSO_LINE_DASH_STYLE.DASH,
+    "default": MSO_LINE_DASH_STYLE.SOLID,
 }
 
 # CALCULATION
 SPECIAL_ITEM_CATE = ["igw"]
 
+
 # ==============================
 # DEBUGGING FUNCTION
 # ==============================
-def print_json(data: dict, indent: int=2) -> None:
-    """ Used for debugging, print dict, JSON type console output """
+def print_json(data: dict, indent: int = 2) -> None:
+    """Used for debugging, print dict, JSON type console output"""
     print(json.dumps(data, indent=indent))
+
 
 # ==============================
 # TRANSFORM FUNCTION
 # ==============================
 def load_data(file_path: str) -> list:
-    """ Open file and return the JSON list data """
+    """Open file and return the JSON list data"""
     if not os.path.isfile(file_path):
         exit(f"File not found: {file_path}")
 
@@ -132,8 +138,9 @@ def load_data(file_path: str) -> list:
         data = json.loads(buffer)
     except ValueError as e:
         exit(f"Invalid JSON in {file_path}: {e}")
-    
+
     return data
+
 
 def extract_resources(data: list) -> list:
     """
@@ -148,7 +155,7 @@ def extract_resources(data: list) -> list:
     result = []
     for region_entry in data:
         region = region_entry.get("region")
-        collected = region_entry.get("collected_resources", {}) # Collected_resources
+        collected = region_entry.get("collected_resources", {})  # Collected_resources
 
         for item_name, item_data in collected.items():
 
@@ -171,23 +178,49 @@ def extract_resources(data: list) -> list:
                                         name = tag.get("Value")
                                         break
 
-                                add_result(item=item_name, id=instance_id, name=name, region=region, vpc=vpc_id, az=az, subnet=subnet_id)
-            
+                                add_result(
+                                    item=item_name,
+                                    id=instance_id,
+                                    name=name,
+                                    region=region,
+                                    vpc=vpc_id,
+                                    az=az,
+                                    subnet=subnet_id,
+                                )
+
             # RDS items
             if item_name == "rds":
                 for rds_obj in collected["rds"]:
-                    rds_id = rds_obj.get("DbiResourceId")   # unique resource ID
-                    rds_name = rds_obj.get("DBInstanceIdentifier")  # human-readable identifier
+                    rds_id = rds_obj.get("DbiResourceId")  # unique resource ID
+                    rds_name = rds_obj.get(
+                        "DBInstanceIdentifier"
+                    )  # human-readable identifier
                     az = rds_obj.get("AvailabilityZone")
 
                     db_subnet_group = rds_obj.get("DBSubnetGroup", {})
                     vpc_id = db_subnet_group.get("VpcId")
                     for subnet in db_subnet_group.get("Subnets", []):
                         subnet_az = subnet.get("SubnetAvailabilityZone", {}).get("Name")
-                        if subnet_az == az: # Main AZ
-                            add_result(item=item_name, id=rds_id, name=rds_name, region=region, vpc=vpc_id, az=subnet_az, subnet=None)
+                        if subnet_az == az:  # Main AZ
+                            add_result(
+                                item=item_name,
+                                id=rds_id,
+                                name=rds_name,
+                                region=region,
+                                vpc=vpc_id,
+                                az=subnet_az,
+                                subnet=None,
+                            )
                         else:
-                            add_result(item=item_name, id=f"{rds_id}-{subnet_az}", name=f"{rds_name}-{subnet_az}", region=region, vpc=vpc_id, az=subnet_az, subnet=None)
+                            add_result(
+                                item=item_name,
+                                id=f"{rds_id}-{subnet_az}",
+                                name=f"{rds_name}-{subnet_az}",
+                                region=region,
+                                vpc=vpc_id,
+                                az=subnet_az,
+                                subnet=None,
+                            )
 
             # ELB item
             if item_name == "loadbalancer":
@@ -196,12 +229,20 @@ def extract_resources(data: list) -> list:
                     lb_name = lb.get("LoadBalancerName")
                     vpc_id = lb.get("VpcId")
 
-                    add_result(item="elb", id=lb_id, name=lb_name, region=region, vpc=vpc_id, az=None, subnet=None)
+                    add_result(
+                        item="elb",
+                        id=lb_id,
+                        name=lb_name,
+                        region=region,
+                        vpc=vpc_id,
+                        az=None,
+                        subnet=None,
+                    )
 
             if item_name == "network":
                 for ig in item_data.get("IGgateway_raw", []):
                     ig_id = ig.get("InternetGatewayId")
-                    
+
                     for attach in ig.get("Attachments", []):
                         if attach.get("State") == "available":
                             vpc_id = attach.get("VpcId")
@@ -216,9 +257,17 @@ def extract_resources(data: list) -> list:
                     # if name is None:
                     #     name = ig_id
 
-                    add_result(item="igw", id=ig_id, region=region, vpc=vpc_id, az=None, subnet=None)
+                    add_result(
+                        item="igw",
+                        id=ig_id,
+                        region=region,
+                        vpc=vpc_id,
+                        az=None,
+                        subnet=None,
+                    )
 
     return result
+
 
 def generate_group_items_mapping(items: list) -> list:
     """
@@ -228,11 +277,18 @@ def generate_group_items_mapping(items: list) -> list:
     - Builds cross-linked sharedGroup for VPC & AZ relationship
     """
 
-    def add_node(node_id: str, node_type: str, category: str, data: dict = None, parent_ids: list = None, shared_info: dict = None) -> None:
+    def add_node(
+        node_id: str,
+        node_type: str,
+        category: str,
+        data: dict = None,
+        parent_ids: list = None,
+        shared_info: dict = None,
+    ) -> None:
         """Add a node (group or item) if not already seen."""
         if not node_id or node_id in seen:
             return
-        
+
         node = {"id": node_id, "type": node_type, "category": category}
         if data:
             node["data"] = data
@@ -276,7 +332,7 @@ def generate_group_items_mapping(items: list) -> list:
         # Region
         if region:
             add_node(region, "group", "region")
-        
+
         # VPC & AZ groups with sharedGroup info
         if vpc and az:
             add_node(
@@ -284,14 +340,14 @@ def generate_group_items_mapping(items: list) -> list:
                 "group",
                 "vpc",
                 parent_ids=[region] if region else None,
-                shared_info=generate_shared_info(True, sorted(list(vpc_to_azs[vpc])))
+                shared_info=generate_shared_info(True, sorted(list(vpc_to_azs[vpc]))),
             )
             add_node(
                 az,
                 "group",
                 "az",
                 parent_ids=[region] if region else None,
-                shared_info=generate_shared_info(False, sorted(list(az_to_vpcs[az])))
+                shared_info=generate_shared_info(False, sorted(list(az_to_vpcs[az]))),
             )
         else:
             if vpc:
@@ -321,9 +377,16 @@ def generate_group_items_mapping(items: list) -> list:
         if item_name is not None:
             item_name = item_type + "\n" + item_name
 
-        add_node(iid, "item", item_type or "unknown", generate_data(name=item_name), parent_ids=parents or None)
+        add_node(
+            iid,
+            "item",
+            item_type or "unknown",
+            generate_data(name=item_name),
+            parent_ids=parents or None,
+        )
 
     return result
+
 
 def cal_position_mapping(data: list) -> list:
     """
@@ -336,7 +399,7 @@ def cal_position_mapping(data: list) -> list:
         """
         - Filter out non primary groups from data.
         - Modify input data to remove the non primary groups
-        - Usually only AvailabilityZones. 
+        - Usually only AvailabilityZones.
         """
         nonlocal data
         result = []
@@ -346,7 +409,7 @@ def cal_position_mapping(data: list) -> list:
                 result.append(n)
         data = [n for n in data if n not in result]
         return result
-    
+
     def filter_special_items() -> list:
         """
         - Filter out special items that no needed in the group
@@ -363,16 +426,16 @@ def cal_position_mapping(data: list) -> list:
         return result
 
     def find_children(node) -> list:
-        """ Return child(ren) of a node. """
+        """Return child(ren) of a node."""
         nonlocal data
         node_id = node["id"]
         return [n for n in data if node_id in n.get("parentId", [])]
 
     def find_siblings(node, required_all: bool = False) -> list:
-        """ Find siblings of a node that have both position and style. """
-        
+        """Find siblings of a node that have both position and style."""
+
         def filter_parent_primary_group(node):
-            """ Return node copy keeping only parentIds whose parents are primary groups. """
+            """Return node copy keeping only parentIds whose parents are primary groups."""
             result = dict(node)
             parent_ids = node.get("parentId", [])
             primary_parents = []
@@ -383,18 +446,19 @@ def cal_position_mapping(data: list) -> list:
                         shared = n.get("sharedGroup", {})
                         if shared.get("isprimaryGroup", True):
                             primary_parents.append(pid)
-                        break # stop one matching parent is found
-            
+                        break  # stop one matching parent is found
+
             result["parentId"] = primary_parents
             return result
-        
+
         nonlocal data
 
         # Handle top-level nodes (no parentId)
         parent_ids = node.get("parentId")
         if not parent_ids:
             return [
-                n for n in data
+                n
+                for n in data
                 if "parentId" not in n
                 and n.get("id") != node.get("id")
                 and "position" in n
@@ -430,7 +494,7 @@ def cal_position_mapping(data: list) -> list:
             if match and "position" in n and "style" in n:
                 siblings.append(n)
 
-        return siblings           
+        return siblings
 
     def find_neighbour_siblings(node) -> list:
         nonlocal data
@@ -441,13 +505,13 @@ def cal_position_mapping(data: list) -> list:
             if n["id"] in node["parentId"]:
                 parent = n
                 break
-        
+
         if not parent:
             return result
-        
+
         if len(parent.get("parentId", [])) == 0:
             return result
-        
+
         siblings_grp = find_siblings(parent, True)
         node_parent_id = node["parentId"]
 
@@ -456,9 +520,12 @@ def cal_position_mapping(data: list) -> list:
             for child in sibling_children:
                 # Get child parentIds, including non-primary group
                 child_parent_id = child["parentId"]
-                if any(p in child_parent_id for p in node_parent_id) and "position" in child:
+                if (
+                    any(p in child_parent_id for p in node_parent_id)
+                    and "position" in child
+                ):
                     result.append(child)
-        
+
         return result
 
     def sort(nodes: list) -> list:
@@ -473,31 +540,37 @@ def cal_position_mapping(data: list) -> list:
         2. Otherwise (mixed span keys present):
             - Step 1: sort by ascending length of parentIds (fewer parents first)
             - Step 2: group nodes by type ('group' before 'item')
-            - Step 3: prioritize the first node that has both a non-empty "default" span 
+            - Step 3: prioritize the first node that has both a non-empty "default" span
                     and additional non-default span keys
             - Step 4: sort remaining nodes by descending total span value (sum of all span lists)
             - Step 5: move nodes that only contain "default" spans to the end
         """
+
         def total_span(node):
             """Sum of all numbers in all span lists."""
             span = node.get("span", {})
             return sum(sum(v) for v in span.values() if isinstance(v, list))
+
         def has_only_default_span(node):
             """True if span has only the 'default' key."""
             span = node.get("span", {})
             return set(span.keys()) == {"default"}
+
         def has_mixed_span(node):
             """True if span has 'default' and at least one other key."""
             span = node.get("span", {})
             keys = list(span.keys())
             return "default" in keys and len(keys) > 1
+
         def has_nonempty_default(node):
             """True if 'default' span exists and not empty."""
             span = node.get("span", {})
             return bool(span.get("default"))
+
         def parent_len(node):
             """Return number of parents (0 if no parentId key)."""
             return len(node.get("parentId", []))
+
         def type_order(node):
             """Lower means higher priority: group < item < others."""
             t = node.get("type", "")
@@ -514,10 +587,7 @@ def cal_position_mapping(data: list) -> list:
 
         # All have only default span
         if only_default_level:
-            return sorted(
-                nodes,
-                key=lambda n: (parent_len(n), -total_span(n))
-            )
+            return sorted(nodes, key=lambda n: (parent_len(n), -total_span(n)))
 
         # Mixed spans
         # Identify the first mixed-span node with non-empty default
@@ -554,12 +624,14 @@ def cal_position_mapping(data: list) -> list:
             key=lambda n: (
                 parent_len(n),
                 type_order(n),
-                0 if n is first_default_mixed else 1  # 3rd priority: special node first
-            )
+                (
+                    0 if n is first_default_mixed else 1
+                ),  # 3rd priority: special node first
+            ),
         )
 
     def get_style(type) -> dict:
-        """ Return default style depending on type. """
+        """Return default style depending on type."""
         if type == "item":
             return {"width": ITEM_W, "height": ITEM_H}
         elif type == "group":
@@ -572,7 +644,7 @@ def cal_position_mapping(data: list) -> list:
 
         if not parent_id:
             return
-        
+
         nonlocal data
 
         for n in data:
@@ -599,17 +671,19 @@ def cal_position_mapping(data: list) -> list:
 
         return smallest
 
-    def move(offset: int, left: int = None, top: int = None, exception: list = []) -> None:
-        
+    def move(
+        offset: int, left: int = None, top: int = None, exception: list = []
+    ) -> None:
+
         if left is None and top is None:
             raise ValueError(f"Must have left or top value.")
         elif left is not None and top is not None:
             raise ValueError(f"Left & Top cannot in same time.")
-        
+
         nonlocal data
 
         for n in data:
-            
+
             if n in exception:
                 continue
 
@@ -620,7 +694,7 @@ def cal_position_mapping(data: list) -> list:
                     n["position"]["left"] += left
                 elif n_left + n_width >= offset:
                     n["style"]["width"] += left
-            else: # top
+            else:  # top
                 n_top = n.get("position", {}).get("top", 0)
                 n_height = n.get("style", {}).get("height", 0)
                 if n_top >= offset:
@@ -634,7 +708,7 @@ def cal_position_mapping(data: list) -> list:
             raise ValueError(f"Must have width or height value.")
         elif width is not None and height is not None:
             raise ValueError(f"Width & Height cannot in same time.")
-        
+
         nonlocal data
 
         for n in data:
@@ -646,7 +720,7 @@ def cal_position_mapping(data: list) -> list:
                 n_width = n.get("style", {}).get("width", 0)
                 if n_width > 0:
                     n["style"]["width"] += width
-            else: # height
+            else:  # height
                 n_width = n.get("style", {}).get("height", 0)
                 if n_width > 0:
                     n["style"]["height"] += height
@@ -659,8 +733,10 @@ def cal_position_mapping(data: list) -> list:
                 result.append(n)
         return result
 
-    def closeness_to_ratio(width: float, height: float, target_ratio: float = GROUP_TARGET_RATIO) -> float:
-        """ Return absolute difference from target ratio (smaller is better) """
+    def closeness_to_ratio(
+        width: float, height: float, target_ratio: float = GROUP_TARGET_RATIO
+    ) -> float:
+        """Return absolute difference from target ratio (smaller is better)"""
         ratio = width / height
         return abs(ratio - target_ratio)
 
@@ -697,17 +773,22 @@ def cal_position_mapping(data: list) -> list:
         node_siblings_grp = copy.deepcopy(node_siblings_grp)
         if len(node_siblings_grp) == 0:
             return False, {}
-        
+
         # Get all child position and the node style will be generated
-        n_child_left = copy.deepcopy(normalize_types(most_right_child_node["position"]["left"]))
-        n_child_top = copy.deepcopy(normalize_types(most_right_child_node["position"]["top"]))
+        n_child_left = copy.deepcopy(
+            normalize_types(most_right_child_node["position"]["left"])
+        )
+        n_child_top = copy.deepcopy(
+            normalize_types(most_right_child_node["position"]["top"])
+        )
         n_child_width = most_right_child_node["style"]["width"]
         n_child_height = most_right_child_node["style"]["height"]
 
         n_width = n_child_left + n_child_width + PAD_H - node["position"]["left"]
         n_height = (
             max(c["position"]["top"] + c["style"]["height"] for c in children)
-            + PAD_V - node["position"]["top"]
+            + PAD_V
+            - node["position"]["top"]
         )
 
         # Group siblings by top and sorted
@@ -718,8 +799,12 @@ def cal_position_mapping(data: list) -> list:
             group_by_top[s_top].append(s)
         if s_top is not None:
             max_top = max(s["position"]["top"] for s in node_siblings_grp)
-            max_height = max(s["style"]["height"] for s in node_siblings_grp if s["position"]["top"] == max_top)
-            group_by_top[max_top + GAP_V + max_height] # Adding new row top position
+            max_height = max(
+                s["style"]["height"]
+                for s in node_siblings_grp
+                if s["position"]["top"] == max_top
+            )
+            group_by_top[max_top + GAP_V + max_height]  # Adding new row top position
         group_by_top = dict(sorted(group_by_top.items(), key=lambda x: x[0]))
 
         adding_new_row = False
@@ -742,9 +827,11 @@ def cal_position_mapping(data: list) -> list:
 
             # Simulated position
             simulated_child_top = top
-            if len(top_group) > 0: # Top group has siblings
-                simulated_child_left = GAP_H + max(s["position"]["left"] + s["style"]["width"] for s in top_group)
-            else: # For new row
+            if len(top_group) > 0:  # Top group has siblings
+                simulated_child_left = GAP_H + max(
+                    s["position"]["left"] + s["style"]["width"] for s in top_group
+                )
+            else:  # For new row
                 simulated_child_left = PAD_H + node["position"]["left"]
 
             # Get the ending position for the most right child node
@@ -757,12 +844,16 @@ def cal_position_mapping(data: list) -> list:
             simulated_children = copy.deepcopy(simulated_children)
 
             # Get list of widhts and heights
-            widths = [c["position"]["left"] + c["style"]["width"] for c in simulated_children] + [simulated_child_right]
+            widths = [
+                c["position"]["left"] + c["style"]["width"] for c in simulated_children
+            ] + [simulated_child_right]
 
             if len(top_group) > 0:
-                if simulated_child_top < keys[i + 1] and keys[i + 1] <= (simulated_child_bottom + GAP_V):
+                if simulated_child_top < keys[i + 1] and keys[i + 1] <= (
+                    simulated_child_bottom + GAP_V
+                ):
                     diff = simulated_child_bottom + GAP_V - keys[i + 1]
-                
+
                 if diff > 0:
                     for c in simulated_children:
                         if simulated_child_top < c["position"]["top"]:
@@ -771,17 +862,21 @@ def cal_position_mapping(data: list) -> list:
                 for c in simulated_children:
                     if (simulated_child_top - GAP_V) < c["position"]["top"]:
                         c["position"]["top"] += n_child_height + GAP_V
-            heights = [c["position"]["top"] + c["style"]["height"] for c in simulated_children] + [simulated_child_bottom]
+            heights = [
+                c["position"]["top"] + c["style"]["height"] for c in simulated_children
+            ] + [simulated_child_bottom]
 
             simulated_n_width = (max(widths) + PAD_H) - node["position"]["left"]
             simulated_n_height = (max(heights) + PAD_V) - node["position"]["top"]
 
-            if closeness_to_ratio(n_width, n_height) > closeness_to_ratio(simulated_n_width, simulated_n_height):
+            if closeness_to_ratio(n_width, n_height) > closeness_to_ratio(
+                simulated_n_width, simulated_n_height
+            ):
                 if len(top_group) == 0:
                     adding_new_row = True
                 else:
                     pos_changed = True
-                
+
                 n_child_left = simulated_child_left
                 n_child_top = simulated_child_top
                 n_width = simulated_n_width
@@ -801,11 +896,11 @@ def cal_position_mapping(data: list) -> list:
                 "pos_left": n_child_left,
                 "pos_top": n_child_top,
                 "add_new_row": adding_new_row,
-                "child_siblings_offset_top_move": child_siblings_top_moving_after_child
+                "child_siblings_offset_top_move": child_siblings_top_moving_after_child,
             }
 
     def shift_node(node: dict, dx: int, dy: int) -> None:
-        """ Shift the node and its children. """
+        """Shift the node and its children."""
         node["position"]["left"] += dx
         node["position"]["top"] += dy
 
@@ -822,7 +917,7 @@ def cal_position_mapping(data: list) -> list:
         # Single item is 1 unit
         if node["type"] == "item":
             return 1
-        
+
         # Recursively compute child spans
         children = find_children(node)
         spans = {}
@@ -858,7 +953,7 @@ def cal_position_mapping(data: list) -> list:
 
         return total_span
 
-    def layout_node(node, left, top, depth: int=0) -> None:
+    def layout_node(node, left, top, depth: int = 0) -> None:
         """
         Set the layout of the node
         """
@@ -867,7 +962,7 @@ def cal_position_mapping(data: list) -> list:
         node["style"] = get_style(node.get("type", None))
 
         children = find_children(node)
-        if not children: # Always item
+        if not children:  # Always item
             return
 
         children = sort(children)
@@ -895,17 +990,19 @@ def cal_position_mapping(data: list) -> list:
             # horizontal expand first
             if len(siblings_grp) > 0:
                 child_top = max(s["position"]["top"] for s in siblings_grp)
-                child_left = GAP_H + max(s["position"]["left"] + s["style"]["width"] for s in siblings_grp)
-
+                child_left = GAP_H + max(
+                    s["position"]["left"] + s["style"]["width"] for s in siblings_grp
+                )
 
             elif len(siblings_neighbour_grp) > 0:
                 child_top = min(s["position"]["top"] for s in siblings_neighbour_grp)
 
             elif len(siblings_primary_grp) > 0:
                 child_top = GAP_V + max(
-                    s["position"]["top"] + s["style"]["height"] for s in siblings_primary_grp
+                    s["position"]["top"] + s["style"]["height"]
+                    for s in siblings_primary_grp
                 )
-                
+
             layout_node(child, child_left, child_top, depth + 1)
 
         if depth > 0 and len(children) > 1:
@@ -925,7 +1022,10 @@ def cal_position_mapping(data: list) -> list:
                     ):
                         shift_node(c, 0, node_detail["child_siblings_offset_top_move"])
 
-                    if node_detail["add_new_row"] and c["position"]["top"] >= node_detail["pos_top"]:
+                    if (
+                        node_detail["add_new_row"]
+                        and c["position"]["top"] >= node_detail["pos_top"]
+                    ):
                         shift_node(c, 0, node_detail["child_height"] + GAP_V)
 
                 node_has_better_pos, node_detail = simulate_layout_change(node)
@@ -938,7 +1038,7 @@ def cal_position_mapping(data: list) -> list:
         node["style"]["height"] = (
             max(c["position"]["top"] + c["style"]["height"] for c in children)
             + PAD_V
-            - (node["position"]["top"] if len(children) > 0 else 0) 
+            - (node["position"]["top"] if len(children) > 0 else 0)
         )
 
     def layout_non_primary_groups(groups: list) -> None:
@@ -948,10 +1048,10 @@ def cal_position_mapping(data: list) -> list:
         # Collection position, preparing for move purpose
         left_collections = defaultdict(list)
         top_collections = defaultdict(list)
-        
+
         for grp in groups:
             children = find_children(grp)
-            
+
             if len(children) == 0:
                 continue
 
@@ -964,8 +1064,16 @@ def cal_position_mapping(data: list) -> list:
             pos_top = smallest_pos_node["position"]["top"]
             pos_left = smallest_pos_node_parent["position"]["left"]
 
-            grp_height = max(c["position"]["top"] + c["style"]["height"] for c in children) + PAD_V / 2 - pos_top
-            grp_width = max(c["position"]["left"] + c["style"]["width"] for c in children) + PAD_H / 2 - pos_left
+            grp_height = (
+                max(c["position"]["top"] + c["style"]["height"] for c in children)
+                + PAD_V / 2
+                - pos_top
+            )
+            grp_width = (
+                max(c["position"]["left"] + c["style"]["width"] for c in children)
+                + PAD_H / 2
+                - pos_left
+            )
 
             grp["position"] = {"top": pos_top, "left": pos_left}
             grp["style"] = {"width": grp_width, "height": grp_height}
@@ -993,9 +1101,9 @@ def cal_position_mapping(data: list) -> list:
             for node in grp_nodes:
                 n_height = node["style"]["height"]
                 move(pos + n_height, top=PAD_V / 2)
-        
+
     def layout_special_items(items: list) -> None:
-        
+
         nonlocal data
 
         parent_collection = defaultdict(list)
@@ -1027,7 +1135,9 @@ def cal_position_mapping(data: list) -> list:
 
             i = 1
             for s_it in s_items:
-                pos_left = n_start + ((n_end - n_start) / (s_items_len + 1) * i) - (ITEM_W / 2)
+                pos_left = (
+                    n_start + ((n_end - n_start) / (s_items_len + 1) * i) - (ITEM_W / 2)
+                )
                 pos_top = n_top - (ITEM_ICON_H / 2)
 
                 s_it["position"] = {"left": pos_left, "top": pos_top}
@@ -1060,6 +1170,7 @@ def cal_position_mapping(data: list) -> list:
 
     return data
 
+
 def generate_pptx(data: list) -> None:
     """
     Generate Powerpoint shapes from data then save
@@ -1068,7 +1179,7 @@ def generate_pptx(data: list) -> None:
         prs = Presentation(pptx=FILE_OUTPUT)
     else:
         prs = Presentation()
-        
+
     slide = prs.slides.add_slide(prs.slide_layouts[PPTX_SLIDE_LAYOUT])
 
     def add_border_box(category: str, left, top, width, height, text: str = None):
@@ -1077,21 +1188,23 @@ def generate_pptx(data: list) -> None:
         """
 
         def get_color(type: str = category) -> RGBColor:
-            """ Return RGBColor based on category type """
+            """Return RGBColor based on category type"""
             return BORDER_COLOR_MAP.get(type.lower(), BORDER_COLOR_MAP["default"])
-        
-        def get_icon(type: str = category) -> str :
-            """ Return group icon (If available) """
+
+        def get_icon(type: str = category) -> str:
+            """Return group icon (If available)"""
             return BORDER_ICON_MAP.get(type.lower(), BORDER_ICON_MAP["default"])
-        
+
         def get_dash(type: str = category) -> MSO_LINE_DASH_STYLE:
-            """ Return dash style based on category type """
+            """Return dash style based on category type"""
             return BORDER_DASH_MAP.get(type.lower(), BORDER_DASH_MAP["default"])
 
         # Add border shape
-        grp_shape = slide.shapes.add_shape(MSO_SHAPE.RECTANGLE, left, top, width, height)
-        grp_shape.fill.background() # Remove fill (transparent)
-        grp_shape.line.width = Pt(1.25) # Border width: 1.25 pt
+        grp_shape = slide.shapes.add_shape(
+            MSO_SHAPE.RECTANGLE, left, top, width, height
+        )
+        grp_shape.fill.background()  # Remove fill (transparent)
+        grp_shape.line.width = Pt(1.25)  # Border width: 1.25 pt
 
         # Setting border the shape
         grp_shape.line.color.rgb = get_color()
@@ -1108,10 +1221,14 @@ def generate_pptx(data: list) -> None:
 
             grp_icon_left = left
             grp_icon_top = top
-            slide.shapes.add_picture(grp_icon, grp_icon_left, grp_icon_top, GROUP_ICON_W, GROUP_ICON_H)
+            slide.shapes.add_picture(
+                grp_icon, grp_icon_left, grp_icon_top, GROUP_ICON_W, GROUP_ICON_H
+            )
 
         if text is not None:
-            grp_label = slide.shapes.add_textbox(grp_label_left, grp_label_top, GROUP_LABEL_TB_W, GROUP_LABEL_TB_H)
+            grp_label = slide.shapes.add_textbox(
+                grp_label_left, grp_label_top, GROUP_LABEL_TB_W, GROUP_LABEL_TB_H
+            )
 
             label_frame = grp_label.text_frame
             label_frame.text = text
@@ -1120,12 +1237,12 @@ def generate_pptx(data: list) -> None:
 
             for paragraph in label_frame.paragraphs:
                 paragraph.font.size = PPTX_FONT_SIZE
- 
+
     def add_item_box(category: str, left, top, text: str):
-        """ Add image + text inside a framed box at given position"""
+        """Add image + text inside a framed box at given position"""
 
         def get_icon(type: str = category) -> str:
-            """ Return item icon """
+            """Return item icon"""
             result = ITEM_ICON_MAP.get(type.lower(), None)
             if result:
                 return result
@@ -1137,7 +1254,9 @@ def generate_pptx(data: list) -> None:
         img_top = top
         img_path = get_icon()
 
-        slide.shapes.add_picture(img_path, left=img_left, top=img_top, width=ITEM_ICON_W, height=ITEM_ICON_H)
+        slide.shapes.add_picture(
+            img_path, left=img_left, top=img_top, width=ITEM_ICON_W, height=ITEM_ICON_H
+        )
 
         if text is None:
             return
@@ -1146,7 +1265,9 @@ def generate_pptx(data: list) -> None:
         tb_left = left
         tb_top = top + ITEM_ICON_H + ITEM_GAP_ICON_DESC
 
-        textbox = slide.shapes.add_textbox(left=tb_left, top=tb_top, width=ITEM_DESC_TB_W, height=ITEM_DESC_TB_H)
+        textbox = slide.shapes.add_textbox(
+            left=tb_left, top=tb_top, width=ITEM_DESC_TB_W, height=ITEM_DESC_TB_H
+        )
         frame = textbox.text_frame
         frame.text = text
         frame.word_wrap = True
@@ -1158,10 +1279,12 @@ def generate_pptx(data: list) -> None:
             paragraph.alignment = PP_ALIGN.CENTER
 
     def save_file() -> None:
-        """ Save file with checking the correct file path """
+        """Save file with checking the correct file path"""
         file_path = FILE_OUTPUT
         try:
-            file_path.parent.mkdir(parents=True, exist_ok=True) # Ensure directory exists
+            file_path.parent.mkdir(
+                parents=True, exist_ok=True
+            )  # Ensure directory exists
             prs.save(file_path)
             print(f"Presentation saved to {file_path}")
         except Exception as e:
@@ -1182,7 +1305,7 @@ def generate_pptx(data: list) -> None:
             style_h = node["style"]["height"]
 
             add_border_box(node_cate, pos_left, pos_top, style_w, style_h, node_id)
-        else: # node_type == "item"
+        else:  # node_type == "item"
             node_data = node.get("data", {})
 
             data_name = node_data.get("name", None)
@@ -1191,6 +1314,7 @@ def generate_pptx(data: list) -> None:
 
             add_item_box(node_cate, pos_left, pos_top, data_name)
     save_file()
+
 
 def main() -> None:
     input_file = FILE_INPUT
@@ -1208,6 +1332,7 @@ def main() -> None:
     # print_json(positioned_items)
 
     generate_pptx(positioned_items)
+
 
 if __name__ == "__main__":
     main()
