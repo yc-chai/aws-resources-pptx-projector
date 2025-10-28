@@ -73,9 +73,9 @@ ITEM_W = max(ITEM_ICON_W, ITEM_DESC_TB_W)
 ITEM_H = ITEM_ICON_H + ITEM_GAP_ICON_DESC + ITEM_DESC_TB_H
 
 # ITEM & GROUP STYLING
-PAD_H = Inches(0.15)  # Padding Horizontal (left-right)
+PAD_H = Inches(0.2)  # Padding Horizontal (left-right)
 PAD_V = Inches(0.25)  # Padding Vertical (top-bottom)
-GAP_H = Inches(0.15)  # Item Gap Horizontal
+GAP_H = Inches(0.2)  # Item Gap Horizontal
 GAP_V = Inches(0.25)  # Item Gap Vertical
 
 # ITEM ICON STYLING

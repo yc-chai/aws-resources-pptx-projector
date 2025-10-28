@@ -89,6 +89,9 @@ python projector.py
 
 ## Output
 
+Sample output:
+![sample output](images/readme/demo_output.png)
+
 The script generates a PowerPoint presentation with:
 
 - Organized layout of AWS resources
