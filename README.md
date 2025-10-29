@@ -23,7 +23,7 @@ A Python utility that automatically generates PowerPoint diagrams of AWS infrast
 
 ## Prerequisites
 
-- Python 3.15
+- Python 3.x
 - Required Python package:
   - python-pptx
 
